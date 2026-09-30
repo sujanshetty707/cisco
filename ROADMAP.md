@@ -12,12 +12,29 @@ This roadmap is designed for **pure terminal usage** (Command Prompt, PowerShell
 
 ## Step 1: Open Terminal and Get the Folder
 
-Open your terminal on the PC and run:
-
+### Option A: If Git is installed
 ```bash
 git clone https://github.com/sujanshetty707/cisco.git
 cd cisco
 ```
+
+### Option B: If Git is NOT installed
+
+Choose any of these quick methods:
+
+* **Method 1 (Directly in Terminal with `curl` - Built into Windows 10/11 & Mac/Linux):**
+  Run these two commands in your terminal (paste your token in place of `YOUR_TOKEN`):
+  ```cmd
+  curl -H "Authorization: token YOUR_TOKEN" -H "Accept: application/vnd.github.v3.raw" -L -o myanswers.py https://api.github.com/repos/sujanshetty707/cisco/contents/myanswers.py
+  curl -H "Authorization: token YOUR_TOKEN" -H "Accept: application/vnd.github.v3.raw" -L -o myanswers.bat https://api.github.com/repos/sujanshetty707/cisco/contents/myanswers.bat
+  ```
+
+* **Method 2 (USB Flash Drive - Easiest & Fastest for Labs):**
+  Keep just two files (`myanswers.bat` and `myanswers.py`) on a USB stick.  
+  Plug it into the PC, open the terminal in your USB drive, and you are ready.
+
+* **Method 3 (Browser Download):**
+  Open your browser, go to `https://github.com/sujanshetty707/cisco`, click **<> Code** -> **Download ZIP**, extract the folder, and open terminal there.
 
 ---
 
