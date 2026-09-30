@@ -1,0 +1,49 @@
+EXPERIMENT 3
+Configure Privilege Level Password and User Authentication in Switch
+
+AIM:
+To configure console security, privilege-level passwords and local user authentication on a switch.
+
+A. HOSTNAME AND CONSOLE PASSWORD
+
+1. Enter configuration mode.
+2. Set the hostname:
+   hostname CISCO
+3. Enter the console line:
+   line console 0
+4. Set the console password:
+   password cisco123
+5. Enable login:
+   login
+6. Exit the configuration mode.
+7. Verify the console password by reconnecting to the console.
+
+B. PRIVILEGE LEVEL PASSWORD
+
+1. Enter configuration mode.
+2. Set a normal privilege password:
+   enable password muscat
+3. Set an encrypted privilege password:
+   enable secret nizwa
+4. Exit configuration mode.
+5. Enter enable mode and verify the password.
+
+C. USER AUTHENTICATION
+
+1. Enter configuration mode:
+   conf t
+2. Select the console line:
+   line console 0
+3. Enable local login:
+   login local
+4. Create a local user:
+   username network password pwd
+5. Exit configuration mode.
+6. Exit the configuration mode.
+7. Log in using the configured username and password.
+8. Enter enable mode and provide the configured privilege password.
+9. Verify that authentication is working correctly.
+10. Confirm that the switch accepts the configured local user credentials.
+
+RESULT:
+The switch hostname, console password, privilege-level password and local user authentication were configured and verified.

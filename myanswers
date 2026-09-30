@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Launcher for myanswers CLI on Linux / macOS
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "$SCRIPT_DIR/myanswers.py" "$@"

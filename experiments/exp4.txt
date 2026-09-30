@@ -1,0 +1,28 @@
+EXPERIMENT 4
+Configure DHCP Server and Wireless Router and Check Connectivity
+
+AIM:
+To configure a DHCP server and wireless router, connect wireless devices and verify DHCP addressing and connectivity.
+
+STEPS:
+
+1. Configure the DHCP server.
+2. Configure FastEthernet on the server.
+3. Configure the wireless router.
+4. On the laptop, remove the wired NIC card.
+5. Select/add the wireless card.
+6. Connect the laptop to the wireless network.
+7. Connect the laptop with the wireless router.
+8. Enter the wireless security key.
+9. On the PC, remove the wired NIC card.
+10. Select/add the wireless card.
+11. Repeat the wireless connection steps.
+12. Check the DHCP IP address assigned to the PC.
+13. Check the DHCP IP address assigned to the laptop.
+14. Verify that both devices received addresses from the DHCP server.
+15. Check the wireless connection status.
+16. Test connectivity between the connected devices.
+17. Confirm that the devices can communicate through the wireless router.
+
+RESULT:
+The DHCP server and wireless router were configured. The PC and laptop received DHCP IP addresses and network connectivity was checked.

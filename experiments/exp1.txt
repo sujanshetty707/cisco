@@ -1,0 +1,99 @@
+EXPERIMENT 1
+Study of Basic Network Commands and Network Devices
+
+AIM:
+To study basic network commands and identify common network devices, reference models, transmission media and connectors used in computer networks.
+
+A. BASIC NETWORK COMMANDS
+
+1. PING
+Purpose: Ping checks whether a destination device or host is reachable over the network. It sends ICMP Echo Request packets and waits for Echo Reply packets. It can be used to check connectivity with computers, routers, switches or an Internet host.
+Steps:
+1. Open Command Prompt.
+2. Type: ping www.google.com
+3. Press Enter and observe the replies.
+4. For continuous testing, use: ping www.google.com -t
+5. Stop continuous ping using Ctrl + C.
+
+2. IPCONFIG
+Purpose: Ipconfig displays the network adapter configuration of the computer. It can show the IP address, subnet mask and default gateway. The /all option provides additional details such as DNS information and MAC address.
+Steps:
+1. Open Command Prompt.
+2. Type: ipconfig
+3. Press Enter.
+4. For detailed information, type: ipconfig /all.
+
+3. RELEASE AND RENEW IP
+Purpose: These commands are used to refresh the IP address assigned to a network adapter. Release removes the current IP address, while renew requests a new IP address from the network.
+Steps:
+1. Type: ipconfig /release
+2. Press Enter.
+3. Type: ipconfig /renew
+4. Press Enter.
+
+4. TRACERT
+Purpose: Tracert shows the path taken by packets from the computer to a destination. It lists the routers through which the packets pass before reaching the destination.
+Steps:
+1. Open Command Prompt.
+2. Type: tracert google.com
+3. Press Enter and observe the route.
+
+5. NSLOOKUP
+Purpose: Nslookup is used to query DNS information. It displays the default DNS server and can be used to check how a domain name is resolved to an IP address.
+Steps:
+1. Type: nslookup
+2. Press Enter.
+3. Observe the DNS server information.
+
+6. NETSTAT
+Purpose: Netstat displays active network connections and listening ports. It helps identify TCP/UDP connections and the network services currently using ports.
+Steps:
+1. Type: netstat
+2. Type: netstat -a
+3. Press Enter and observe the connections.
+
+7. ARP
+Purpose: ARP stands for Address Resolution Protocol. It maps IP addresses to MAC addresses so that devices can communicate over the local network. The arp -a command displays the current ARP cache.
+Steps:
+1. Type: arp -a
+2. Press Enter.
+3. Observe the ARP cache.
+
+8. NBTSTAT
+Purpose: Nbtstat displays NetBIOS information used by Windows network devices. The -n option shows the NetBIOS names currently registered by the device.
+Steps:
+1. Type: nbtstat -n
+2. Press Enter.
+3. Observe the NetBIOS names.
+
+9. ROUTE
+Purpose: The route command displays the computer's routing table. The routing table contains information used to decide where network packets should be forwarded.
+Steps:
+1. Type: route
+2. Press Enter.
+3. Observe the routing information.
+
+10. GETMAC
+Purpose: Getmac displays the Media Access Control address of the network adapters installed in the computer. The MAC address is a hardware address used for communication on the local network.
+Steps:
+1. Type: getmac
+2. Press Enter.
+3. Note the MAC address.
+
+11. SYSTEMINFO
+Purpose: Systeminfo displays detailed information about the computer and operating system, including Windows version and system hardware information.
+Steps:
+1. Type: systeminfo
+2. Press Enter.
+3. Observe the displayed system details.
+
+B. NETWORK DEVICES
+
+1. Identify router, switch, hub, bridge, repeater, gateway, modem, wireless access point and NIC.
+2. Note the main function of each device.
+3. Identify OSI and TCP/IP reference models.
+4. Identify UTP, STP, coaxial and fiber-optic cables.
+5. Identify the RJ45 connector.
+
+RESULT:
+The basic network commands, networking devices, reference models, transmission media and connector were studied.

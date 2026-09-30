@@ -1,0 +1,36 @@
+EXPERIMENT 5
+Configure Static Routing Using Cisco Packet Tracer
+
+AIM:
+To configure static routing between two networks using Cisco Packet Tracer and verify connectivity.
+
+STEPS:
+
+1. Open Cisco Packet Tracer.
+2. Draw the required topology.
+3. Assign IP addresses to all PCs.
+4. Configure the IP address of Router 1 FastEthernet 0/0.
+5. Configure the IP address of Router 1 FastEthernet 0/1.
+6. Configure the IP address of Router 2 FastEthernet 0/0.
+7. Configure the IP address of Router 2 FastEthernet 0/1.
+
+8. Configure static routing on Router 1:
+   Router(config)# ip route 192.168.2.0 255.255.255.0 192.168.3.2
+
+9. Configure static routing on Router 2:
+   Router(config)# ip route 192.168.1.0 255.255.255.0 192.168.3.1
+
+10. The static route can also be added through the Config window by selecting Static.
+11. Add the opposite network address, subnet mask and next-hop address.
+12. Verify that the static routes are present in the router configuration.
+13. From a PC, open:
+    Desktop > Command Prompt
+14. Test connectivity using:
+    ping 192.168.2.1
+15. Observe the ping replies.
+16. Check the number of packets sent, received and lost.
+17. Confirm that packets are received and packet loss is 0%.
+18. Verify that the two networks can communicate through the routers.
+
+RESULT:
+Static routes were configured on both routers and connectivity between the two networks was verified using the ping command.

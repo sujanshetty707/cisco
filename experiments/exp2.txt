@@ -1,0 +1,58 @@
+EXPERIMENT 2
+Basic Configuration of Switch/Router Using Cisco Packet Tracer
+
+AIM:
+To configure a basic router and switch in Cisco Packet Tracer and verify network connectivity.
+
+A. ROUTER CONFIGURATION
+
+1. Open Cisco Packet Tracer.
+2. Construct the required topology.
+3. Assign IP addresses to all PCs.
+4. Use another network address for the second network.
+5. Assign the gateway address to the first router interface.
+6. Turn ON the interface/port status.
+7. Assign the gateway address of the second network to FastEthernet 0/1.
+8. Check connectivity from a PC:
+   Desktop > Command Prompt
+9. Execute the ping command for the other network.
+10. Send a Simple PDU between PCs.
+11. Check that the PDU Last Status is Successful.
+12. Open Simulation Mode.
+13. Select only ICMP in the event filters.
+14. Use Capture/Forward to observe the ICMP packet movement.
+15. Confirm that the PDU is successful.
+16. Save the topology using the .pkt file format.
+
+B. SWITCH CONFIGURATION
+
+1. Enter privileged mode:
+   enable
+2. Enter configuration mode:
+   configure terminal
+3. Erase the startup configuration:
+   erase startup-config
+4. Reload the switch:
+   reload
+5. Check flash memory:
+   show flash
+6. Display IOS/version information:
+   show version
+7. Display the current clock:
+   show clock
+8. Configure the clock:
+   clock set hh:mm:ss MONTH DAY YEAR
+9. Change the switch name:
+   hostname S1
+10. Configure an MOTD banner.
+11. Save the running configuration:
+   copy running-config startup-config
+12. Display the current configuration:
+   show running-config
+13. Check interface status:
+   show ip interface brief
+14. Display VLAN information:
+   show vlan
+
+RESULT:
+The basic router and switch configuration was completed and connectivity was verified using ping and Simple PDU.

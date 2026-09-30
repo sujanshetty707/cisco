@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "myanswers"
+version = "1.0.0"
+description = "CLI tool to view and update private lab experiment answers from GitHub"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[project.scripts]
+myanswers = "myanswers:main"
