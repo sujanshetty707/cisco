@@ -1,29 +1,19 @@
-# Quick Roadmap: Getting Lab Answers on Another PC
+# Terminal Roadmap: Getting Answers on Another PC
 
-Follow these simple steps whenever you are sitting at another computer (such as a college lab PC or laptop) and need to retrieve your experiment answers.
-
----
-
-## Prerequisites (What You Need)
-1. **Python 3** installed on the PC (standard on most systems).
-2. Your **GitHub Personal Access Token** (the `ghp_...` token with `repo` permission).
-3. Internet connection.
+This roadmap is designed for **pure terminal usage** (Command Prompt, PowerShell, or Bash). You do **not** need to run any Python package managers or pip commands.
 
 ---
 
-## Step 1: Get the Client Script on the PC
+## What You Need
+1. Your **GitHub Personal Access Token** (the `ghp_...` token with `repo` permission).
+2. A terminal (Command Prompt, PowerShell, or Bash).
 
-Choose **either** Method A or Method B:
+---
 
-### Method A: Single File (Fastest – No Git Required)
-Download or copy just **`myanswers.py`** to the PC:
-* Using PowerShell / Command Prompt:
-  ```powershell
-  curl -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.py
-  ```
-* *Or simply transfer `myanswers.py` via a USB drive / email / Google Drive.*
+## Step 1: Open Terminal and Get the Folder
 
-### Method B: Clone the Repository (If Git is installed)
+Open your terminal on the PC and run:
+
 ```bash
 git clone https://github.com/sujanshetty707/cisco.git
 cd cisco
@@ -31,44 +21,55 @@ cd cisco
 
 ---
 
-## Step 2: Set Up the "myanswers" Command
+## Step 2: Enable the `myanswers` Command
 
-To make it callable by typing just `myanswers`:
+Run this **one command** in your terminal so you can type `myanswers` from anywhere:
 
-* **On Windows (PowerShell or CMD):**
-  In the folder where `myanswers.py` is located, run:
+* **In PowerShell (Windows):**
   ```powershell
-  python -m pip install -e .
+  $env:Path += ";$PWD"
   ```
-  *(Or if using standalone file without pip, simply run: `python myanswers.py`)*
 
-* **On Linux / macOS:**
-  ```bash
-  python3 -m pip install -e .
+* **In Command Prompt / CMD (Windows):**
+  ```cmd
+  set PATH=%PATH%;%cd%
   ```
+
+* **In Linux / macOS Terminal:**
+  ```bash
+  export PATH="$PATH:$PWD"
+  ```
+
+*(Now `myanswers` is an active terminal command in your session).*
 
 ---
 
-## Step 3: Enter Your GitHub Token (One-Time Setup)
+## Step 3: Link Your GitHub Token (Run Once)
 
-Run this command once to link your private GitHub repository:
+In your terminal, run:
 
 ```cmd
 myanswers config --token ghp_YOUR_GITHUB_TOKEN_HERE
 ```
 *(Replace `ghp_YOUR_GITHUB_TOKEN_HERE` with your actual token).*
 
-> **Note:** The token is securely stored in your user profile (`~/.myanswers/config.json`) and masked so it is never displayed on screen.
+Output:
+```text
+[OK] GitHub token updated.
+```
+
+> **Security Note:** The token is saved in your local user profile (`~/.myanswers/config.json`) and is never printed on screen.
 
 ---
 
 ## Step 4: Get Your Answers
 
-### Option 1: Interactive Menu
-Run:
+### Method 1: Open the Menu
+Just type:
 ```cmd
 myanswers
 ```
+
 Output:
 ```text
 MY LAB EXPERIMENTS
@@ -81,22 +82,29 @@ MY LAB EXPERIMENTS
 
 Enter experiment number: 3
 ```
-Type any number (`1` to `5`) and press **Enter**.
-* Only the chosen experiment is downloaded and shown.
-* Afterward, type another number (`1-5`) to view another experiment, or `0` to exit.
+* Enter `3` to fetch and view **only** Experiment 3.
+* Afterwards, type another number `1-5` to view another experiment, or `0` to exit.
 
 ---
 
-### Option 2: Direct Command (Instant View)
-To view a specific experiment directly without opening the menu:
+### Method 2: View an Experiment Directly (Fastest)
+You can directly pass the experiment number:
 
 * To view Experiment 1:
   ```cmd
   myanswers 1
   ```
+* To view Experiment 2:
+  ```cmd
+  myanswers 2
+  ```
 * To view Experiment 3:
   ```cmd
   myanswers 3
+  ```
+* To view Experiment 4:
+  ```cmd
+  myanswers 4
   ```
 * To view Experiment 5:
   ```cmd
@@ -105,13 +113,14 @@ To view a specific experiment directly without opening the menu:
 
 ---
 
-## Step 5: Clean Up When Done (Crucial for Shared/Lab PCs)
+## Step 5: Clean Up When Leaving the PC
 
-When you finish using a public or shared college lab PC, erase your token so nobody else can access your answers:
+When you are done using a shared or college lab PC, erase your saved token with one command:
 
 ```cmd
 myanswers logout
 ```
+
 Output:
 ```text
 [OK] Saved GitHub token has been cleared.
@@ -119,11 +128,11 @@ Output:
 
 ---
 
-## Summary Cheat Sheet
+## 5-Second Cheat Sheet
 
-| Task | Command |
-|:---|:---|
-| Set up token | `myanswers config --token <your_token>` |
-| Open interactive menu | `myanswers` |
-| View Experiment 3 directly | `myanswers 3` |
-| Log out / delete token from PC | `myanswers logout` |
+```cmd
+cd cisco
+myanswers config --token <your_token>
+myanswers 3
+myanswers logout
+```
