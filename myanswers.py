@@ -151,15 +151,29 @@ def mask_token(token: str) -> str:
     return token[:4] + "*" * (len(token) - 8) + token[-4:]
 
 
-# --- GitHub API Operations ---
+# --- GitHub Operations ---
 
-def make_api_request(url: str, token: str, method: str = "GET", data: bytes = None) -> dict:
+def fetch_raw_content(repo: str, path: str) -> str | None:
+    """Fetch raw text directly from public GitHub URL without any token."""
+    for branch in [DEFAULT_BRANCH, "master"]:
+        url = f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"
+        req = urllib.request.Request(url, headers={"User-Agent": "myanswers-cli"})
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except Exception:
+            continue
+    return None
+
+
+def make_api_request(url: str, token: str = None, method: str = "GET", data: bytes = None) -> dict:
     """Execute an HTTP request to the GitHub REST API using urllib."""
     headers = {
         "Accept": "application/vnd.github.v3+json",
         "User-Agent": "myanswers-cli",
-        "Authorization": f"Bearer {token}",
     }
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
     if data is not None:
         headers["Content-Type"] = "application/json"
 
@@ -172,9 +186,9 @@ def make_api_request(url: str, token: str, method: str = "GET", data: bytes = No
     except urllib.error.HTTPError as err:
         if err.code in (401, 403):
             raise PermissionError(
-                f"GitHub authentication failed (HTTP {err.code}).\n"
-                "Your Personal Access Token may be invalid, expired, or missing 'repo' permissions.\n"
-                "To update your token, run: myanswers config"
+                f"GitHub access error (HTTP {err.code}).\n"
+                "If the repository requires authentication, ensure your token is valid with 'repo' scope.\n"
+                "To configure a token, run: myanswers config --token <your_token>"
             )
         elif err.code == 404:
             raise FileNotFoundError(f"File or repository not found on GitHub (HTTP 404): {url}")
@@ -192,7 +206,7 @@ def make_api_request(url: str, token: str, method: str = "GET", data: bytes = No
         )
 
 
-def fetch_experiment(exp_num: int, repo: str, token: str) -> tuple[str, str, str]:
+def fetch_experiment(exp_num: int, repo: str, token: str = None) -> tuple[str, str, str]:
     """
     Fetch ONLY the specified experiment file from GitHub.
     Returns: (content_text, blob_sha, matched_path)
@@ -203,6 +217,13 @@ def fetch_experiment(exp_num: int, repo: str, token: str) -> tuple[str, str, str
         f"exp{exp_num}.txt",
     ]
 
+    # Fast path: Try fetching raw content (works without token on public repo)
+    for path in candidate_paths:
+        raw_text = fetch_raw_content(repo, path)
+        if raw_text is not None:
+            return raw_text, "", path
+
+    # Fallback to GitHub REST API
     last_error = None
     for path in candidate_paths:
         url = f"https://api.github.com/repos/{repo}/contents/{path}"
@@ -529,8 +550,6 @@ def main():
         exp_num = int(argv[0])
         if 1 <= exp_num <= 5:
             token = get_token()
-            if not token:
-                token = prompt_for_token()
             repo = get_repo()
             view_experiment(exp_num, repo, token)
             return
@@ -549,8 +568,6 @@ def main():
     elif args.command is None:
         # Default interactive menu
         token = get_token()
-        if not token:
-            token = prompt_for_token()
         repo = get_repo()
         interactive_menu(repo, token)
     else:

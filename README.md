@@ -1,9 +1,8 @@
 # Lab Answers - Data Communication and Computer Network (CSE2252)
 
-Private repository storing lab experiment answers, configuration steps, and CLI access tooling for Data Communication and Computer Network Lab (CSE2252).
+Public repository storing lab experiment answers, configuration steps, and CLI access tooling for Data Communication and Computer Network Lab (CSE2252).
 
-> **CONFIDENTIALITY NOTICE**  
-> This repository contains private study materials. Keep this repository **PRIVATE**. Never commit Personal Access Tokens, API keys, passwords, or personal credentials.
+Retrieving answers is **public and token-free**. Anyone can retrieve answers on any computer without logging in or configuring access tokens.
 
 ---
 
