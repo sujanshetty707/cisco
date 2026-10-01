@@ -13,11 +13,19 @@ The repository is **PUBLIC**. You do **NOT** need any GitHub Personal Access Tok
   cd cisco
   ```
 
-* **If Git is NOT installed (Download via built-in `curl`):**
-  ```cmd
-  curl -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.bat
-  curl -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.py
-  ```
+* **If Git is NOT installed (Download via terminal):**
+  * **In PowerShell:**
+    ```powershell
+    curl.exe -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.bat
+    curl.exe -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.py
+    ```
+    *(Note: You must type `curl.exe` instead of `curl` in PowerShell because PowerShell aliases `curl` to `Invoke-WebRequest`)*.
+
+  * **In Command Prompt (CMD):**
+    ```cmd
+    curl -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.bat
+    curl -O https://raw.githubusercontent.com/sujanshetty707/cisco/main/myanswers.py
+    ```
 
 * **Or use a USB Flash Drive:**
   Keep `myanswers.bat` and `myanswers.py` on your USB stick. Plug it in and open terminal in that folder.
@@ -72,17 +80,23 @@ Enter experiment number: 3
 
 ---
 
-## Method 2: Ultra-Fast 1-Line `curl` (No Scripts Needed at All)
+## Method 2: Ultra-Fast 1-Line Direct View (No Scripts Needed at All)
 
-If you are on a restricted PC and just want the text immediately on your screen without downloading any scripts:
+If you are on a lab PC and just want the answer text immediately on your screen without downloading anything:
 
-```cmd
-curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp1.txt
-curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp2.txt
-curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp3.txt
-curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp4.txt
-curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp5.txt
-```
+* **In PowerShell (Use `irm`):**
+  ```powershell
+  irm https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp1.txt
+  irm https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp2.txt
+  irm https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp3.txt
+  irm https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp4.txt
+  irm https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp5.txt
+  ```
+
+* **In Command Prompt (CMD):**
+  ```cmd
+  curl https://raw.githubusercontent.com/sujanshetty707/cisco/main/experiments/exp3.txt
+  ```
 
 ---
 
